@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Resume</title>
+</head>
+<body>
+
+<style>
+  body{
+    font-family:Arial ,sans-serif;
+    background-color:#f4f4f4;
+    color:#333;
+  }
+  .container{
+    max-width:600px;
+    margin:auto;
+    padding:20px;
+    background-color:#fff;
+    box-shadow:0 2 10px rgba(0,0,0,0.10);
+    border-radius:8px;
+  }
+  h2{
+    text-align:center;
+    margin-bottom:20px;
+  }
+  form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  input[tpe="file"]{
+    margin-bottom:20px;
+  }
+  input[type="submit"]{
+    padding: 10px 20px;
+    background-color:#4CAF50;
+    color: #fff;
+    border: none;
+    border-radius:4px;
+    cursor:pointer;
+    transition:background-color 0.3s ease;
+  }
+  input[type="submit"]:hover{
+    background-color:#45a049;
+  }
+  
+</style>
+  
+<div class="container" style="margin-top:20px;background:black;color:white">
+  <h1>Resume Screening by AI</h1>
+  <p>This system suggest TXT and PDF file, to be uploaded</p>
+  <ul>
+    <li>Resume Categorization</li>
+    <li>Resume Job Recommendation</li>
+    <li>Resume Parsing </li>
+  </ul>
+</div>
+
+<div class="container" style="margin-top:20px;background:black;color:white">
+<h2>Upload Your Resume</h2>
+<form action="/pred" method="post" enctype="multipart/form-data">
+  <input type="file" name="resume" accept=".pdf, .txt" required>
+  <input type="submit" value="Submit">
+</form>
+
+  {% if message %}
+  <p class='text-center'>{{message}}</p>
+  {% endif %}
+
+  {% if predicted_category %}
+  <br>
+  <hr>
+  <br>
+  <p><b><strong><Category:></Category:></strong></b> {{ predicted_category }}</p>
+  <p><b><strong><Category:></Recommended_Job:></strong></b> {{ recommend_job }}</p>
+  <br>
+  <hr>       
+  <h1 class="text-center">Extracted Information</h1>
+  <p class="text-center"><b><strong>Name:</strong></b> {{name}}</p>
+  <p class="text-center"><b><strong>Phone No:</strong></b> {{phone}}</p>
+  <p class="text-center"><b><strong>Email:</strong></b> {{email}}</p>
+  {% if skills %}
+  <p class="text-center"><b><strong>Skills</strong></b></p>
+  <ul class="list-unstyled text-center">
+      {% for skill in skills %}
+      <li>{{ skill }}</li>
+      {% endfor %}
+  </ul>
+  {% else %}
+  <p class="text-center">No skills founds.........</p>
+  <br>
+  {% endif %}
+  
+  {% if education %}
+  <h1 class="text-center">Education:</h1>
+  <ul class="list-unstyled text-center">
+      {% for edu in education %}
+      <li>{{ edu }}</li>
+      {% endfor %}
+  </ul>
+  {% else %}
+  <p class="text-center">No Education founds.........</p>
+  <br>
+  {% endif %}
+  {% endif %}
+
+</div>
+  
+</body>
+</html>
