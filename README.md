@@ -15,6 +15,8 @@ This project is a **Flask-based Resume Screening Application** that analyzes upl
 - **Recommend Suitable Jobs**
 - **Extract Educational Background**
 
+## Demo
+https://resume-parser-a4ze.onrender.com
 ## Tech Stack
 
 - **Backend**: Flask (Python)
