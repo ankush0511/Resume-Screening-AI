@@ -20,6 +20,9 @@ https://resume-parser-a4ze.onrender.com
 ![image](https://github.com/user-attachments/assets/46c2e267-8ee4-4319-98d5-b4038157750b)
 
 
+![Uploading image.png…]()
+
+
 
 ## Tech Stack
 
